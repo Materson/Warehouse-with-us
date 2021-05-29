@@ -1,0 +1,16 @@
+{
+    "name": "Warehouse with us",
+    "short_name": "Wws",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#2A3443",
+    "description": "A demo app for IUM",
+    "theme_color": "#2A3443",
+    "icons": [
+      {
+        "src": "./public/favicon.ico",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }

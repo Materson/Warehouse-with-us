@@ -1,0 +1,38 @@
+version: '3'
+services: 
+  front:
+    build: ./frontend
+    depends_on:
+    - backend
+    stdin_open: true
+    ports:
+      # - 443:3000
+      - 443:443
+    volumes:
+      - './frontend/warehouse-with-us-app:/app'
+      - '/app/node_modules'
+  backend:
+    build: ./backend
+    depends_on: 
+    - mongo
+    - mongo-express
+    environment:
+      - CONNECTION_STRING=mongodb://root:example@mongo:27017
+    ports:
+      - 8002:8000
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8082:8081
+    depends_on: 
+    - mongo
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example

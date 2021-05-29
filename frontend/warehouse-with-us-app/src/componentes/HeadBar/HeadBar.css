@@ -1,0 +1,15 @@
+@media (prefers-reduced-motion: no-preference) {
+    .Syncing {
+        animation: Sync-logo-spin infinite 5s linear;
+    }
+}
+
+@keyframes Sync-logo-spin {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+}
+  
